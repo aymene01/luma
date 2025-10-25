@@ -1,0 +1,27 @@
+---
+// Cursor Spotlight Effect Component
+---
+
+<div class="cursor-spotlight" id="cursorSpotlight"></div>
+
+<style>
+	.cursor-spotlight {
+		position: fixed;
+		width: 600px;
+		height: 600px;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(255, 107, 88, 0.08) 0%, transparent 70%);
+		pointer-events: none;
+		z-index: 9998;
+		transform: translate(-50%, -50%);
+		transition: opacity 0.3s ease;
+		opacity: 0;
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.cursor-spotlight {
+			opacity: 1;
+		}
+	}
+</style>
+

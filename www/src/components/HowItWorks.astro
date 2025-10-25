@@ -1,0 +1,210 @@
+---
+// How It Works Component
+---
+
+<section class="section section-how" id="how-it-works">
+	<div class="container-narrow">
+		<div class="section-header scroll-reveal">
+			<span class="section-label">How It Works</span>
+			<h2 class="section-title">Three steps to<br/>digital clarity.</h2>
+		</div>
+		<div class="how-steps">
+			<div class="how-step scroll-reveal" style="animation-delay: 0s">
+				<div class="step-number">01</div>
+				<div class="step-content">
+					<h3 class="step-title">Connect your accounts</h3>
+					<p class="step-description">
+						Link your messaging platforms in seconds. We support Slack, Discord, Twitter, Email, 
+						WhatsApp, Telegram, and more.
+					</p>
+				</div>
+				<div class="step-visual">
+					<div class="step-icon-grid">
+						<div class="step-icon"></div>
+						<div class="step-icon"></div>
+						<div class="step-icon"></div>
+						<div class="step-icon"></div>
+					</div>
+				</div>
+			</div>
+			<div class="how-step scroll-reveal" style="animation-delay: 0.2s">
+				<div class="step-number">02</div>
+				<div class="step-content">
+					<h3 class="step-title">Set your preferences</h3>
+					<p class="step-description">
+						Tell Luma what matters. Our AI learns your priorities and filters out the noise automatically.
+					</p>
+				</div>
+				<div class="step-visual">
+					<div class="step-sliders">
+						<div class="slider-item"></div>
+						<div class="slider-item"></div>
+						<div class="slider-item"></div>
+					</div>
+				</div>
+			</div>
+			<div class="how-step scroll-reveal" style="animation-delay: 0.4s">
+				<div class="step-number">03</div>
+				<div class="step-content">
+					<h3 class="step-title">Enjoy your focus</h3>
+					<p class="step-description">
+						Start each day with a curated digest. Only see what matters. Reclaim your attention and your time.
+					</p>
+				</div>
+				<div class="step-visual">
+					<div class="step-checkmark">
+						<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.section-how {
+		background: white;
+	}
+
+	.how-steps {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-3xl);
+	}
+
+	.how-step {
+		display: grid;
+		grid-template-columns: 80px 1fr auto;
+		gap: var(--spacing-xl);
+		align-items: center;
+	}
+
+	.step-number {
+		font-size: 2rem;
+		font-weight: 800;
+		color: var(--color-text-light);
+		font-family: var(--font-serif);
+	}
+
+	.step-title {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-bottom: 0.75rem;
+		color: var(--color-text);
+	}
+
+	.step-description {
+		font-size: 1.0625rem;
+		color: var(--color-text-muted);
+		line-height: 1.7;
+	}
+
+	.step-visual {
+		width: 200px;
+		height: 200px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.step-icon-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--spacing-sm);
+		padding: var(--spacing-md);
+		background: var(--gradient-accent);
+		border-radius: var(--radius-lg);
+	}
+
+	.step-icon {
+		width: 60px;
+		height: 60px;
+		background: white;
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.step-sliders {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		width: 120px;
+	}
+
+	.slider-item {
+		height: 8px;
+		background: var(--color-border);
+		border-radius: var(--radius-full);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.slider-item::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		background: var(--gradient-primary);
+		border-radius: var(--radius-full);
+		animation: slideProgress 3s ease-in-out infinite;
+	}
+
+	.slider-item:nth-child(1)::after {
+		width: 80%;
+		animation-delay: 0s;
+	}
+
+	.slider-item:nth-child(2)::after {
+		width: 60%;
+		animation-delay: 0.5s;
+	}
+
+	.slider-item:nth-child(3)::after {
+		width: 90%;
+		animation-delay: 1s;
+	}
+
+	@keyframes slideProgress {
+		0%, 100% { transform: translateX(0); }
+		50% { transform: translateX(10px); }
+	}
+
+	.step-checkmark {
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		background: var(--gradient-accent);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.step-checkmark svg {
+		color: var(--color-accent);
+		animation: scaleCheckmark 2s ease-in-out infinite;
+	}
+
+	@keyframes scaleCheckmark {
+		0%, 100% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.1);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.how-step {
+			grid-template-columns: 1fr;
+			text-align: center;
+		}
+
+		.step-visual {
+			margin: 0 auto;
+		}
+	}
+</style>
+

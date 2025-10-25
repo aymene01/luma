@@ -1,0 +1,211 @@
+---
+// FAQ Component
+---
+
+<section class="section section-faq" id="faq">
+	<div class="container-narrow">
+		<div class="section-header scroll-reveal">
+			<span class="section-label">FAQ</span>
+			<h2 class="section-title">Questions? Answered.</h2>
+		</div>
+		<div class="faq-list">
+			<div class="faq-item scroll-reveal">
+				<button class="faq-question">
+					<span>Is Luma really free?</span>
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<line x1="12" y1="5" x2="12" y2="19"></line>
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+					</svg>
+				</button>
+				<div class="faq-answer">
+					<p>
+						Yes! Luma is completely free and open source. We believe attention is a human right, not a product. 
+						Our mission is funded by grants and donations, not surveillance capitalism.
+					</p>
+				</div>
+			</div>
+
+			<div class="faq-item scroll-reveal">
+				<button class="faq-question">
+					<span>How does the AI work?</span>
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<line x1="12" y1="5" x2="12" y2="19"></line>
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+					</svg>
+				</button>
+				<div class="faq-answer">
+					<p>
+						Our AI analyzes your communication patterns locally on your device to understand what matters to you. 
+						It learns which conversations are urgent, which can wait, and which are just noise. All processing 
+						happens on your device—we never see your messages.
+					</p>
+				</div>
+			</div>
+
+			<div class="faq-item scroll-reveal">
+				<button class="faq-question">
+					<span>What platforms do you support?</span>
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<line x1="12" y1="5" x2="12" y2="19"></line>
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+					</svg>
+				</button>
+				<div class="faq-answer">
+					<p>
+						Currently: Slack, Discord, Email (Gmail, Outlook), WhatsApp, Telegram, Twitter/X, and LinkedIn. 
+						We're constantly adding new integrations based on user feedback. Request yours on GitHub!
+					</p>
+				</div>
+			</div>
+
+			<div class="faq-item scroll-reveal">
+				<button class="faq-question">
+					<span>Is my data private?</span>
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<line x1="12" y1="5" x2="12" y2="19"></line>
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+					</svg>
+				</button>
+				<div class="faq-answer">
+					<p>
+						Absolutely. Luma is end-to-end encrypted and processes everything locally. We can't read your messages 
+						even if we wanted to. No tracking, no analytics, no data collection. It's all open source—verify it yourself.
+					</p>
+				</div>
+			</div>
+
+			<div class="faq-item scroll-reveal">
+				<button class="faq-question">
+					<span>Can I contribute to the project?</span>
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<line x1="12" y1="5" x2="12" y2="19"></line>
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+					</svg>
+				</button>
+				<div class="faq-answer">
+					<p>
+						We'd love that! Luma is open source and welcomes contributions of all kinds—code, design, documentation, 
+						or just spreading the word. Check out our GitHub repository to get started.
+					</p>
+				</div>
+			</div>
+
+			<div class="faq-item scroll-reveal">
+				<button class="faq-question">
+					<span>When will it be available?</span>
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<line x1="12" y1="5" x2="12" y2="19"></line>
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+					</svg>
+				</button>
+				<div class="faq-answer">
+					<p>
+						We're currently in private beta with a small group of testers. Public beta launches Q1 2024. 
+						Join the waitlist to get early access and help shape the future of mindful communication.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.section-faq {
+		background: white;
+	}
+
+	.faq-list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm);
+	}
+
+	.faq-item {
+		background: white;
+		border: 1px solid var(--color-border-light);
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		transition: all var(--transition-base);
+	}
+
+	.faq-item:hover {
+		border-color: var(--color-border);
+	}
+
+	.faq-question {
+		width: 100%;
+		background: none;
+		border: none;
+		text-align: left;
+		padding: var(--spacing-md);
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: var(--color-text);
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: var(--spacing-sm);
+		transition: var(--transition-base);
+	}
+
+	.faq-question:hover {
+		color: var(--color-accent);
+	}
+
+	.faq-question svg {
+		flex-shrink: 0;
+		transition: transform var(--transition-base);
+		color: var(--color-accent);
+	}
+
+	.faq-item.active .faq-question svg {
+		transform: rotate(45deg);
+	}
+
+	.faq-answer {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height var(--transition-slow);
+	}
+
+	.faq-item.active .faq-answer {
+		max-height: 500px;
+	}
+
+	.faq-answer p {
+		padding: 0 var(--spacing-md) var(--spacing-md);
+		color: var(--color-text-muted);
+		line-height: 1.7;
+	}
+</style>
+
+<script>
+	function initFAQ() {
+		const faqItems = document.querySelectorAll('.faq-item');
+		
+		faqItems.forEach((item) => {
+			const question = item.querySelector('.faq-question');
+			
+			question?.addEventListener('click', () => {
+				// Close other items
+				faqItems.forEach((otherItem) => {
+					if (otherItem !== item) {
+						otherItem.classList.remove('active');
+					}
+				});
+				
+				// Toggle current item
+				item.classList.toggle('active');
+			});
+		});
+	}
+
+	// Initialize on DOM ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initFAQ);
+	} else {
+		initFAQ();
+	}
+</script>
+

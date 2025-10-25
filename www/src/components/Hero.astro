@@ -1,0 +1,569 @@
+---
+// Hero Section Component
+---
+
+<section class="hero">
+	<div class="hero-bg">
+		<div class="hero-gradient"></div>
+		<div class="hero-grid"></div>
+	</div>
+	<div class="container">
+		<div class="hero-content">
+			<div class="hero-badge animate-in" style="animation-delay: 0.1s">
+				<svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+					<circle cx="6" cy="6" r="5.5" stroke="currentColor"/>
+					<circle cx="6" cy="6" r="2" fill="currentColor"/>
+				</svg>
+				<span>Open Source • Privacy First • Community Driven</span>
+			</div>
+			<h1 class="hero-title animate-in" style="animation-delay: 0.2s">
+				<span class="title-line">Reclaim your</span><br/>
+				<span class="title-line">
+					<span class="typewriter" data-words='["attention.", "focus.", "time.", "peace."]'>
+						<span class="typewriter-text">attention.</span><span class="typewriter-cursor">|</span>
+					</span>
+				</span>
+			</h1>
+			<p class="hero-subtitle animate-in" style="animation-delay: 0.3s">
+				Luma unites all your conversations, messages, and communities into one calm, 
+				<span class="gradient-text">intentional space</span> — with a daily highlight of 
+				what truly matters.
+			</p>
+			<div class="hero-features animate-in" style="animation-delay: 0.4s">
+				<div class="hero-feature">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+						<circle cx="12" cy="7" r="4"></circle>
+					</svg>
+					<span>Unified inbox for all platforms</span>
+				</div>
+				<div class="hero-feature">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+					</svg>
+					<span>Privacy-first, zero tracking</span>
+				</div>
+				<div class="hero-feature">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<circle cx="12" cy="12" r="10"></circle>
+						<polyline points="12 6 12 12 16 14"></polyline>
+					</svg>
+					<span>AI-powered daily highlights</span>
+				</div>
+			</div>
+			<div class="hero-ctas animate-in" style="animation-delay: 0.5s">
+				<button class="btn btn-primary btn-hero" onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">
+					<span>Join the Waitlist</span>
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</button>
+				<a href="https://github.com" class="btn btn-secondary btn-hero">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+					</svg>
+					<span>View on GitHub</span>
+				</a>
+			</div>
+			<div class="hero-social-proof animate-in" style="animation-delay: 0.6s">
+				<div class="proof-avatars">
+					<div class="avatar"></div>
+					<div class="avatar"></div>
+					<div class="avatar"></div>
+					<div class="avatar"></div>
+					<div class="avatar-count">+<span class="live-count" data-base="1200">1.2k</span></div>
+				</div>
+				<div class="proof-text">
+					<strong><span class="live-count" data-base="1247">1,247</span> people</strong> waiting for early access
+					<span class="live-indicator">
+						<span class="pulse-dot"></span>
+						<span>Live</span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="hero-visual animate-in" style="animation-delay: 0.4s">
+			<div class="hero-mockup">
+				<div class="mockup-window">
+					<div class="mockup-header">
+						<div class="mockup-dots">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+						<div class="mockup-title">Luma</div>
+						<div class="mockup-actions"></div>
+					</div>
+					<div class="mockup-content">
+						<div class="mockup-sidebar">
+							<div class="sidebar-item active"></div>
+							<div class="sidebar-item"></div>
+							<div class="sidebar-item"></div>
+							<div class="sidebar-item"></div>
+						</div>
+						<div class="mockup-main">
+							<div class="message-item"></div>
+							<div class="message-item"></div>
+							<div class="message-item"></div>
+						</div>
+					</div>
+				</div>
+				<div class="mockup-float float-1">
+					<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+					</svg>
+				</div>
+				<div class="mockup-float float-2">
+					<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+						<polyline points="22,6 12,13 2,6"></polyline>
+					</svg>
+				</div>
+				<div class="mockup-float float-3">
+					<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	/* Hero Section Styles */
+	.hero {
+		position: relative;
+		padding: calc(80px + var(--spacing-3xl)) 0 var(--spacing-3xl);
+		overflow: hidden;
+		min-height: 85vh;
+		display: flex;
+		align-items: center;
+	}
+
+	.hero .container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing-3xl);
+		align-items: center;
+	}
+
+	.hero-bg {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		overflow: hidden;
+	}
+
+	.hero-gradient {
+		position: absolute;
+		top: -50%;
+		right: -20%;
+		width: 800px;
+		height: 800px;
+		background: radial-gradient(circle, rgba(255, 107, 88, 0.08) 0%, transparent 70%);
+		border-radius: 50%;
+		animation: float 20s ease-in-out infinite;
+	}
+
+	.hero-grid {
+		position: absolute;
+		inset: 0;
+		background-image: 
+			linear-gradient(var(--color-border-light) 1px, transparent 1px),
+			linear-gradient(90deg, var(--color-border-light) 1px, transparent 1px);
+		background-size: 50px 50px;
+		mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, black 40%, transparent 100%);
+		-webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, black 40%, transparent 100%);
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 1;
+	}
+
+	.hero-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: white;
+		border: 1px solid var(--color-border-light);
+		border-radius: var(--radius-full);
+		font-size: 0.8125rem;
+		font-weight: 600;
+		color: var(--color-text-muted);
+		margin-bottom: var(--spacing-md);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.hero-badge svg {
+		color: var(--color-accent);
+	}
+
+	.hero-title {
+		font-size: clamp(3.5rem, 8vw, 6rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.04em;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.title-line {
+		display: inline-block;
+	}
+
+	.typewriter {
+		display: inline-flex;
+		align-items: baseline;
+		position: relative;
+	}
+
+	.typewriter-text {
+		display: inline;
+		white-space: nowrap;
+	}
+
+	.typewriter-cursor {
+		display: inline;
+		color: var(--color-accent);
+		animation: blink 0.8s step-end infinite;
+		font-weight: 400;
+	}
+
+	@keyframes blink {
+		0%, 49% {
+			opacity: 1;
+		}
+		50%, 100% {
+			opacity: 0;
+		}
+	}
+
+	.hero-subtitle {
+		font-size: clamp(1.125rem, 2vw, 1.375rem);
+		line-height: 1.6;
+		color: var(--color-text-muted);
+		margin-bottom: var(--spacing-lg);
+		max-width: 540px;
+	}
+
+	.hero-features {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm);
+		margin-bottom: var(--spacing-xl);
+	}
+
+	.hero-feature {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		font-size: 0.9375rem;
+		color: var(--color-text-muted);
+	}
+
+	.hero-feature svg {
+		color: var(--color-accent);
+		flex-shrink: 0;
+	}
+
+	.hero-ctas {
+		display: flex;
+		gap: var(--spacing-sm);
+		flex-wrap: wrap;
+		margin-bottom: var(--spacing-xl);
+	}
+
+	.hero-social-proof {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-md);
+	}
+
+	.proof-avatars {
+		display: flex;
+		align-items: center;
+	}
+
+	.avatar {
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		border: 2px solid white;
+		margin-left: -8px;
+	}
+
+	.avatar:first-child {
+		margin-left: 0;
+	}
+
+	.avatar:nth-child(2) {
+		background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+	}
+
+	.avatar:nth-child(3) {
+		background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+	}
+
+	.avatar:nth-child(4) {
+		background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+	}
+
+	.avatar-count {
+		margin-left: -8px;
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		background: var(--color-accent-pale);
+		color: var(--color-accent);
+		border: 2px solid white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.625rem;
+		font-weight: 700;
+	}
+
+	.proof-text {
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.live-count {
+		display: inline-block;
+		transition: all var(--transition-fast);
+	}
+
+	.live-indicator {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.375rem;
+		padding: 0.25rem 0.625rem;
+		background: rgba(39, 201, 63, 0.1);
+		border-radius: var(--radius-full);
+		font-size: 0.75rem;
+		font-weight: 600;
+		color: #27C93F;
+	}
+
+	.pulse-dot {
+		width: 6px;
+		height: 6px;
+		background: #27C93F;
+		border-radius: 50%;
+		animation: pulse 2s ease-in-out infinite;
+	}
+
+	/* Hero Visual */
+	.hero-visual {
+		position: relative;
+		height: 600px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.hero-mockup {
+		position: relative;
+		width: 100%;
+		max-width: 540px;
+		transition: transform var(--transition-slow);
+	}
+
+	.hero-mockup:hover {
+		transform: translateY(-8px);
+	}
+
+	.hero-mockup:hover .mockup-window {
+		box-shadow: 0 20px 80px rgba(0, 0, 0, 0.2);
+		border-color: var(--color-accent);
+	}
+
+	.hero-mockup:hover .mockup-float {
+		transform: scale(1.1);
+	}
+
+	.mockup-window {
+		background: white;
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-xl);
+		overflow: hidden;
+		border: 1px solid var(--color-border-light);
+		transition: all var(--transition-slow);
+	}
+
+	.mockup-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1rem;
+		border-bottom: 1px solid var(--color-border-light);
+		background: #FAFAFA;
+	}
+
+	.mockup-dots {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.mockup-dots span {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background: var(--color-border);
+	}
+
+	.mockup-dots span:nth-child(1) {
+		background: #FF5F57;
+	}
+
+	.mockup-dots span:nth-child(2) {
+		background: #FEBC2E;
+	}
+
+	.mockup-dots span:nth-child(3) {
+		background: #28C840;
+	}
+
+	.mockup-title {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-text);
+	}
+
+	.mockup-actions {
+		width: 12px;
+	}
+
+	.mockup-content {
+		display: flex;
+		height: 400px;
+	}
+
+	.mockup-sidebar {
+		width: 72px;
+		background: #FAFAFA;
+		border-right: 1px solid var(--color-border-light);
+		padding: 1rem 0.75rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.sidebar-item {
+		width: 100%;
+		height: 48px;
+		background: white;
+		border-radius: var(--radius-md);
+		border: 1px solid var(--color-border-light);
+		transition: var(--transition-base);
+	}
+
+	.sidebar-item.active {
+		background: var(--color-accent-pale);
+		border-color: var(--color-accent);
+	}
+
+	.mockup-main {
+		flex: 1;
+		padding: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.message-item {
+		height: 72px;
+		background: #FAFAFA;
+		border-radius: var(--radius-md);
+		animation: shimmer 2s ease-in-out infinite;
+	}
+
+	.message-item:nth-child(2) {
+		animation-delay: 0.3s;
+	}
+
+	.message-item:nth-child(3) {
+		animation-delay: 0.6s;
+	}
+
+	@keyframes shimmer {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0.5; }
+	}
+
+	.mockup-float {
+		position: absolute;
+		width: 64px;
+		height: 64px;
+		border-radius: var(--radius-lg);
+		background: white;
+		box-shadow: var(--shadow-lg);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--color-accent);
+		transition: all var(--transition-slow);
+	}
+
+	.float-1 {
+		top: 10%;
+		left: -5%;
+		animation: float 8s ease-in-out infinite;
+	}
+
+	.float-2 {
+		bottom: 20%;
+		left: -8%;
+		animation: float 7s ease-in-out infinite 1s;
+	}
+
+	.float-3 {
+		top: 30%;
+		right: -5%;
+		animation: float 9s ease-in-out infinite 0.5s;
+	}
+
+	@keyframes float {
+		0%, 100% {
+			transform: translateY(0) rotate(0deg);
+		}
+		50% {
+			transform: translateY(-20px) rotate(5deg);
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.hero .container {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-visual {
+			height: 500px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			padding-top: calc(80px + var(--spacing-lg));
+		}
+
+		.hero-visual {
+			height: 400px;
+		}
+
+		.hero-mockup {
+			max-width: 100%;
+		}
+
+		.mockup-content {
+			height: 320px;
+		}
+	}
+</style>
+

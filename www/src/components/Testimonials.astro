@@ -1,0 +1,155 @@
+---
+// Pure Minimal Testimonials Component
+---
+
+<section class="section testimonials-pure" id="testimonials">
+	<div class="container-narrow">
+		<div class="section-header scroll-reveal">
+			<h2 class="section-title">What people are saying.</h2>
+		</div>
+		<div class="testimonials-grid">
+			<div class="testimonial-pure scroll-reveal" style="animation-delay: 0s">
+				<p class="testimonial-quote">
+					"Luma gave me back hours of my day. I finally feel in control of my digital life."
+				</p>
+				<div class="testimonial-author">
+					<span class="author-name">Sarah Chen</span>
+					<span class="author-role">Product Designer, Stripe</span>
+				</div>
+			</div>
+
+			<div class="testimonial-pure scroll-reveal" style="animation-delay: 0.1s">
+				<p class="testimonial-quote">
+					"The daily highlights alone are worth it. Luma is a game-changer for anyone managing multiple workspaces."
+				</p>
+				<div class="testimonial-author">
+					<span class="author-name">Marcus Rodriguez</span>
+					<span class="author-role">Engineering Lead, Notion</span>
+				</div>
+			</div>
+
+			<div class="testimonial-pure scroll-reveal" style="animation-delay: 0.2s">
+				<p class="testimonial-quote">
+					"Finally, a messaging app that respects my attention. Open source + privacy-first is exactly what we needed."
+				</p>
+				<div class="testimonial-author">
+					<span class="author-name">Emily Park</span>
+					<span class="author-role">Founder, TechFlow</span>
+				</div>
+			</div>
+
+			<div class="testimonial-pure scroll-reveal" style="animation-delay: 0.3s">
+				<p class="testimonial-quote">
+					"Switched to Luma 3 weeks ago. My screen time is down 40%. This is the future of messaging."
+				</p>
+				<div class="testimonial-author">
+					<span class="author-name">Alex Kim</span>
+					<span class="author-role">Software Engineer, Meta</span>
+				</div>
+			</div>
+
+			<div class="testimonial-pure scroll-reveal" style="animation-delay: 0.4s">
+				<p class="testimonial-quote">
+					"The AI highlights are scary good. It knows what I need to see before I do. This is next-level."
+				</p>
+				<div class="testimonial-author">
+					<span class="author-name">Jordan Smith</span>
+					<span class="author-role">Designer, Figma</span>
+				</div>
+			</div>
+
+			<div class="testimonial-pure scroll-reveal" style="animation-delay: 0.5s">
+				<p class="testimonial-quote">
+					"I've tried every productivity app. Luma is the only one that actually changed how I work."
+				</p>
+				<div class="testimonial-author">
+					<span class="author-name">Taylor Wong</span>
+					<span class="author-role">VP Product, Linear</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.testimonials-pure {
+		background: var(--gradient-subtle);
+	}
+
+	.testimonials-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--spacing-lg);
+		margin-top: var(--spacing-xl);
+	}
+
+	.testimonial-pure {
+		background: white;
+		border: 1px solid var(--color-border-light);
+		border-radius: var(--radius-lg);
+		padding: var(--spacing-xl);
+		transition: all var(--transition-slow);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-md);
+	}
+
+	.testimonial-pure:hover {
+		transform: translateY(-6px);
+		box-shadow: var(--shadow-xl);
+		border-color: var(--color-accent);
+	}
+
+	.testimonial-quote {
+		font-size: 1.1875rem;
+		line-height: 1.75;
+		color: var(--color-text);
+		font-style: italic;
+		font-weight: 400;
+		flex: 1;
+	}
+
+	.testimonial-quote::before {
+		content: '"';
+		color: var(--color-accent);
+		font-size: 2rem;
+		font-family: var(--font-serif);
+		line-height: 0;
+		vertical-align: -0.4rem;
+		margin-right: 0.25rem;
+	}
+
+	.testimonial-author {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		padding-top: var(--spacing-sm);
+		border-top: 1px solid var(--color-border-light);
+	}
+
+	.author-name {
+		font-size: 0.9375rem;
+		font-weight: 700;
+		color: var(--color-text);
+	}
+
+	.author-role {
+		font-size: 0.875rem;
+		color: var(--color-text-light);
+	}
+
+	@media (max-width: 768px) {
+		.testimonials-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.testimonial-pure {
+			padding: var(--spacing-md);
+		}
+
+		.testimonial-quote {
+			font-size: 1rem;
+		}
+	}
+</style>
+

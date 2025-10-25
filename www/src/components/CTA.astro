@@ -1,0 +1,191 @@
+---
+// Final CTA with Waitlist Component
+---
+
+<section class="section section-cta" id="waitlist">
+	<div class="cta-bg"></div>
+	<div class="container-narrow">
+		<div class="cta-content">
+			<div class="section-header scroll-reveal">
+				<h2 class="cta-title">Ready to reclaim<br/>your attention?</h2>
+				<p class="cta-description">
+					Join thousands on the waitlist. Get early access and help shape the future.
+				</p>
+			</div>
+			<form class="waitlist-form scroll-reveal">
+				<div class="form-container">
+					<input 
+						type="email" 
+						class="form-input" 
+						placeholder="your@email.com"
+						required
+					/>
+					<button type="submit" class="btn btn-primary btn-hero">
+						<span>Join Waitlist</span>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+							<polyline points="12 5 19 12 12 19"></polyline>
+						</svg>
+					</button>
+				</div>
+				<p class="form-note">
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+					</svg>
+					<span>We respect your privacy. Unsubscribe anytime.</span>
+				</p>
+			</form>
+			<div class="cta-opensource scroll-reveal">
+				<p>🔓 Open Source</p>
+				<a href="https://github.com" class="btn btn-secondary">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+					</svg>
+					<span>Star on GitHub</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.section-cta {
+		position: relative;
+		background: var(--gradient-subtle);
+		overflow: hidden;
+	}
+
+	.cta-bg {
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(circle at 50% 50%, rgba(255, 107, 88, 0.05) 0%, transparent 70%);
+		pointer-events: none;
+	}
+
+	.cta-content {
+		position: relative;
+		z-index: 1;
+		text-align: center;
+	}
+
+	.cta-title {
+		font-size: clamp(2.5rem, 5vw, 4rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.03em;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.cta-description {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		margin-bottom: var(--spacing-xl);
+	}
+
+	.waitlist-form {
+		max-width: 600px;
+		margin: 0 auto var(--spacing-xl);
+	}
+
+	.form-container {
+		display: flex;
+		gap: var(--spacing-sm);
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.form-input {
+		flex: 1;
+		padding: 1.125rem 1.5rem;
+		border-radius: var(--radius-full);
+		border: 1.5px solid var(--color-border);
+		font-size: 1rem;
+		font-family: var(--font-sans);
+		background: white;
+		transition: all var(--transition-base);
+	}
+
+	.form-input:focus {
+		outline: none;
+		border-color: var(--color-accent);
+		box-shadow: 0 0 0 4px rgba(255, 107, 88, 0.1);
+	}
+
+	.form-input::placeholder {
+		color: var(--color-text-light);
+	}
+
+	.form-note {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		font-size: 0.875rem;
+		color: var(--color-text-light);
+	}
+
+	.form-note svg {
+		color: var(--color-accent);
+		flex-shrink: 0;
+	}
+
+	.cta-opensource {
+		margin-top: var(--spacing-lg);
+	}
+
+	.cta-opensource p {
+		font-size: 0.9375rem;
+		color: var(--color-text-muted);
+		margin-bottom: var(--spacing-sm);
+	}
+
+	@media (max-width: 768px) {
+		.form-container {
+			flex-direction: column;
+		}
+	}
+</style>
+
+<script>
+	function initWaitlistForm() {
+		const form = document.querySelector('.waitlist-form') as HTMLFormElement;
+		
+		if (form) {
+			form.addEventListener('submit', (e) => {
+				e.preventDefault();
+				
+				const input = form.querySelector('.form-input') as HTMLInputElement;
+				const button = form.querySelector('.btn-primary') as HTMLButtonElement;
+				
+				if (input && button) {
+					const email = input.value;
+					
+					// Store in localStorage (replace with actual API call in production)
+					localStorage.setItem('luma-waitlist-email', email);
+					
+					// Update UI
+					button.innerHTML = `
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>You're on the list!</span>
+					`;
+					button.setAttribute('style', 'background: #27C93F; box-shadow: 0 4px 12px rgba(39, 201, 63, 0.25);');
+					
+					input.disabled = true;
+					input.setAttribute('style', 'border-color: #27C93F; background: #F0FFF4;');
+					
+					// Show confetti effect (simple version)
+					console.log('🎉 Waitlist signup successful!', email);
+				}
+			});
+		}
+	}
+
+	// Initialize on DOM ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initWaitlistForm);
+	} else {
+		initWaitlistForm();
+	}
+</script>
+

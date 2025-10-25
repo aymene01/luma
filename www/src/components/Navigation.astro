@@ -1,0 +1,205 @@
+---
+// Navigation Component
+---
+
+<nav class="nav" id="main-nav">
+	<div class="nav-progress"></div>
+	<div class="container">
+		<div class="nav-content">
+			<a href="/" class="logo">
+				<svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
+					<circle cx="20" cy="20" r="8" fill="currentColor"/>
+					<circle cx="12" cy="15" r="3" fill="currentColor" opacity="0.6"/>
+					<circle cx="28" cy="15" r="3" fill="currentColor" opacity="0.6"/>
+					<circle cx="20" cy="8" r="3" fill="currentColor" opacity="0.4"/>
+				</svg>
+				<span class="logo-text">Luma</span>
+			</a>
+			<div class="nav-links">
+				<a href="#features">Features</a>
+				<a href="#how-it-works">How it Works</a>
+				<a href="#testimonials">Testimonials</a>
+				<a href="#faq">FAQ</a>
+				<a href="https://github.com" target="_blank" rel="noopener" class="nav-github">
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+					</svg>
+					GitHub
+				</a>
+				<button class="keyboard-hint" id="keyboardHint" title="Press ⌘K for quick navigation">
+					<span class="kbd">⌘</span>
+					<span class="kbd">K</span>
+				</button>
+				<button class="btn btn-primary btn-small nav-cta">Join Waitlist</button>
+			</div>
+			<button class="mobile-menu-toggle" aria-label="Toggle menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+		</div>
+	</div>
+</nav>
+
+<style>
+	.nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(12px) saturate(180%);
+		border-bottom: 1px solid var(--color-border);
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+		z-index: 1000;
+		transition: all var(--transition-base);
+	}
+
+	.nav-progress {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 2px;
+		background: var(--gradient-primary);
+		width: 0%;
+		transition: width 0.1s ease;
+	}
+
+	.nav .container {
+		padding: 0 var(--spacing-md);
+	}
+
+	.nav-content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 70px;
+	}
+
+	.logo {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		text-decoration: none;
+		color: var(--color-text);
+		font-weight: 800;
+		font-size: 1.375rem;
+		letter-spacing: -0.02em;
+		transition: transform var(--transition-base);
+	}
+
+	.logo:hover {
+		transform: scale(1.05);
+	}
+
+	.logo-icon {
+		width: 32px;
+		height: 32px;
+		color: var(--color-accent);
+	}
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-md);
+	}
+
+	.nav-links a:not(.btn):not(.nav-github) {
+		font-size: 0.9375rem;
+		font-weight: 500;
+		color: var(--color-text-muted);
+		text-decoration: none;
+		transition: color var(--transition-base);
+	}
+
+	.nav-links a:not(.btn):not(.nav-github):hover {
+		color: var(--color-text);
+	}
+
+	.nav-github {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		font-weight: 500;
+		transition: color var(--transition-base);
+	}
+
+	.nav-github:hover {
+		color: var(--color-text);
+	}
+
+	.keyboard-hint {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.375rem;
+		padding: 0.5rem 0.75rem;
+		background: white;
+		border: 1px solid var(--color-border-light);
+		border-radius: var(--radius-sm);
+		cursor: pointer;
+		transition: all var(--transition-base);
+	}
+
+	.keyboard-hint:hover {
+		border-color: var(--color-accent);
+		box-shadow: 0 0 0 3px rgba(255, 107, 88, 0.1);
+		transform: translateY(-1px);
+	}
+
+	.kbd {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 20px;
+		height: 20px;
+		padding: 0 0.375rem;
+		background: var(--gradient-subtle);
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		font-size: 0.75rem;
+		font-weight: 600;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+		color: var(--color-text-muted);
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	}
+
+	.mobile-menu-toggle {
+		display: none;
+		flex-direction: column;
+		gap: 4px;
+		background: none;
+		border: none;
+		padding: 0.5rem;
+		cursor: pointer;
+	}
+
+	.mobile-menu-toggle span {
+		display: block;
+		width: 24px;
+		height: 2px;
+		background: var(--color-text);
+		transition: var(--transition-base);
+	}
+
+	@media (max-width: 768px) {
+		.nav-links a:not(.btn):not(.nav-github) {
+			display: none;
+		}
+
+		.nav-github {
+			display: none;
+		}
+
+		.keyboard-hint {
+			display: none;
+		}
+
+		.mobile-menu-toggle {
+			display: flex;
+		}
+	}
+</style>
+

@@ -1,0 +1,382 @@
+---
+// Client-side Scripts Component
+---
+
+<script>
+	// ===============================================
+	// SCROLL REVEAL ANIMATIONS
+	// ===============================================
+	function revealOnScroll() {
+		const reveals = document.querySelectorAll('.scroll-reveal');
+		
+		reveals.forEach((element) => {
+			const elementTop = element.getBoundingClientRect().top;
+			const elementVisible = 100;
+			
+			if (elementTop < window.innerHeight - elementVisible) {
+				element.classList.add('revealed');
+			}
+		});
+	}
+
+	// ===============================================
+	// NAVIGATION PROGRESS BAR
+	// ===============================================
+	function updateNavProgress() {
+		const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+		const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+		const scrolled = (winScroll / height) * 100;
+		const progressBar = document.querySelector('.nav-progress');
+		if (progressBar) {
+			(progressBar as HTMLElement).style.width = scrolled + '%';
+		}
+	}
+
+	// ===============================================
+	// NAV CTA SCROLL TO WAITLIST
+	// ===============================================
+	function initNavCTA() {
+		const navCTA = document.querySelector('.nav-cta');
+		if (navCTA) {
+			navCTA.addEventListener('click', () => {
+				document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
+			});
+		}
+	}
+
+	// ===============================================
+	// TYPEWRITER EFFECT
+	// ===============================================
+	function initTypewriter() {
+		const wrapper = document.querySelector('.typewriter') as HTMLElement;
+		if (!wrapper) return;
+
+		const textElement = wrapper.querySelector('.typewriter-text') as HTMLElement;
+		if (!textElement) return;
+
+		const words = JSON.parse(wrapper.dataset.words || '[]') as string[];
+		let wordIndex = 0;
+		let charIndex = 0;
+		let isDeleting = false;
+		let typingSpeed = 150;
+
+		function type() {
+			const currentWord = words[wordIndex];
+			
+			if (isDeleting) {
+				textElement.textContent = currentWord.substring(0, charIndex - 1);
+				charIndex--;
+				typingSpeed = 50;
+			} else {
+				textElement.textContent = currentWord.substring(0, charIndex + 1);
+				charIndex++;
+				typingSpeed = 150;
+			}
+
+			if (!isDeleting && charIndex === currentWord.length) {
+				typingSpeed = 2000; // Pause at end
+				isDeleting = true;
+			} else if (isDeleting && charIndex === 0) {
+				isDeleting = false;
+				wordIndex = (wordIndex + 1) % words.length;
+				typingSpeed = 500; // Pause before next word
+			}
+
+			setTimeout(type, typingSpeed);
+		}
+
+		type();
+	}
+
+	// ===============================================
+	// LIVE COUNTER UPDATES
+	// ===============================================
+	function initLiveCounters() {
+		const counters = document.querySelectorAll('.live-count');
+		
+		counters.forEach(counter => {
+			const counterElement = counter as HTMLElement;
+			const baseCount = parseInt(counterElement.dataset.base || '0');
+			
+			// Simulate live updates every 10-30 seconds
+			setInterval(() => {
+				const increment = Math.random() > 0.7 ? 1 : 0;
+				if (increment) {
+					const currentValue = parseInt((counterElement.textContent || '').replace(/[^0-9]/g, '')) || baseCount;
+					const newValue = currentValue + increment;
+					
+					// Format based on size
+					if (newValue >= 1000) {
+						counterElement.textContent = (newValue / 1000).toFixed(1) + 'k';
+					} else {
+						counterElement.textContent = newValue.toLocaleString();
+					}
+					
+					// Flash effect
+					counterElement.style.transform = 'scale(1.1)';
+					setTimeout(() => {
+						counterElement.style.transform = 'scale(1)';
+					}, 200);
+				}
+			}, Math.random() * 20000 + 10000);
+		});
+	}
+
+	// ===============================================
+	// COMMAND PALETTE
+	// ===============================================
+	function initCommandPalette() {
+		const commandPalette = document.getElementById('commandPalette');
+		const commandBackdrop = document.getElementById('commandBackdrop');
+		const commandInput = document.getElementById('commandInput') as HTMLInputElement;
+		const keyboardHint = document.getElementById('keyboardHint');
+		const commandClose = document.getElementById('commandClose');
+		const commandItems = document.querySelectorAll('.command-item');
+
+		function openPalette() {
+			commandPalette?.classList.add('active');
+			commandBackdrop?.classList.add('active');
+			commandInput?.focus();
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closePalette() {
+			commandPalette?.classList.remove('active');
+			commandBackdrop?.classList.remove('active');
+			if (commandInput) (commandInput as HTMLInputElement).value = '';
+			document.body.style.overflow = '';
+		}
+
+		// Open with ⌘K or Ctrl+K
+		document.addEventListener('keydown', (e: KeyboardEvent) => {
+			if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+				e.preventDefault();
+				openPalette();
+			}
+			if (e.key === 'Escape' && commandPalette?.classList.contains('active')) {
+				closePalette();
+			}
+			// Single letter shortcuts when palette is open
+			if (commandPalette?.classList.contains('active')) {
+				const key = e.key.toLowerCase();
+				commandItems.forEach(item => {
+					const itemElement = item as HTMLAnchorElement;
+					if ((itemElement as HTMLElement).dataset.cmd === key) {
+						e.preventDefault();
+						itemElement.click();
+						closePalette();
+					}
+				});
+			}
+		});
+
+		// Open with keyboard hint button
+		keyboardHint?.addEventListener('click', openPalette);
+
+		// Close with backdrop or close button
+		commandBackdrop?.addEventListener('click', closePalette);
+		commandClose?.addEventListener('click', closePalette);
+
+		// Close when clicking a command
+		commandItems.forEach(item => {
+			item.addEventListener('click', () => {
+				setTimeout(closePalette, 100);
+			});
+		});
+
+		// Filter commands based on search
+		commandInput?.addEventListener('input', (e: Event) => {
+			const target = e.target as HTMLInputElement;
+			const query = target.value.toLowerCase();
+			commandItems.forEach(item => {
+				const itemElement = item as HTMLElement;
+				const text = itemElement.textContent?.toLowerCase() || '';
+				if (text.includes(query)) {
+					itemElement.style.display = 'flex';
+				} else {
+					itemElement.style.display = 'none';
+				}
+			});
+		});
+	}
+
+	// ===============================================
+	// CURSOR SPOTLIGHT EFFECT
+	// ===============================================
+	function initCursorSpotlight() {
+		const spotlight = document.getElementById('cursorSpotlight');
+		if (!spotlight) return;
+
+		let mouseX = 0;
+		let mouseY = 0;
+		let spotlightX = 0;
+		let spotlightY = 0;
+
+		document.addEventListener('mousemove', (e: MouseEvent) => {
+			mouseX = e.clientX;
+			mouseY = e.clientY;
+		});
+
+		function animateSpotlight() {
+			// Smooth easing
+			const ease = 0.15;
+			spotlightX += (mouseX - spotlightX) * ease;
+			spotlightY += (mouseY - spotlightY) * ease;
+
+			if (spotlight) {
+				spotlight.style.left = `${spotlightX}px`;
+				spotlight.style.top = `${spotlightY}px`;
+			}
+
+			requestAnimationFrame(animateSpotlight);
+		}
+
+		animateSpotlight();
+	}
+
+	// ===============================================
+	// SMOOTH SCROLL
+	// ===============================================
+	function initSmoothScroll() {
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e: Event) {
+				e.preventDefault();
+				const href = (anchor as HTMLAnchorElement).getAttribute('href');
+				if (href && href !== '#') {
+					const target = document.querySelector(href);
+					target?.scrollIntoView({
+						behavior: 'smooth',
+						block: 'start'
+					});
+				}
+			});
+		});
+	}
+
+	// ===============================================
+	// CONFETTI ANIMATION
+	// ===============================================
+	function createConfetti() {
+		const colors = ['#FF6B58', '#FFB800', '#27C93F', '#4A90E2', '#BD10E0'];
+		const confettiCount = 50;
+
+		for (let i = 0; i < confettiCount; i++) {
+			const confetti = document.createElement('div');
+			confetti.style.position = 'fixed';
+			confetti.style.width = '10px';
+			confetti.style.height = '10px';
+			confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+			confetti.style.left = Math.random() * 100 + '%';
+			confetti.style.top = '-10px';
+			confetti.style.opacity = '1';
+			confetti.style.borderRadius = '50%';
+			confetti.style.pointerEvents = 'none';
+			confetti.style.zIndex = '9999';
+			
+			document.body.appendChild(confetti);
+
+			const duration = Math.random() * 3000 + 2000;
+			const rotation = Math.random() * 360;
+			
+			confetti.animate([
+				{ transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+				{ transform: `translateY(${window.innerHeight + 20}px) rotate(${rotation}deg)`, opacity: 0 }
+			], {
+				duration: duration,
+				easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+			}).onfinish = () => confetti.remove();
+		}
+	}
+
+	// ===============================================
+	// FAQ ACCORDION
+	// ===============================================
+	function initFAQ() {
+		const faqItems = document.querySelectorAll('.faq-item');
+		
+		faqItems.forEach((item) => {
+			const question = item.querySelector('.faq-question');
+			
+			question?.addEventListener('click', () => {
+				// Close other items
+				faqItems.forEach((otherItem) => {
+					if (otherItem !== item) {
+						otherItem.classList.remove('active');
+					}
+				});
+				
+				// Toggle current item
+				item.classList.toggle('active');
+			});
+		});
+	}
+
+	// ===============================================
+	// WAITLIST FORM
+	// ===============================================
+	function initWaitlistForm() {
+		const form = document.querySelector('.waitlist-form') as HTMLFormElement;
+		
+		if (form) {
+			form.addEventListener('submit', (e) => {
+				e.preventDefault();
+				
+				const input = form.querySelector('.form-input') as HTMLInputElement;
+				const button = form.querySelector('.btn-primary') as HTMLButtonElement;
+				
+				if (input && button) {
+					const email = input.value;
+					
+					// Store in localStorage (replace with actual API call in production)
+					localStorage.setItem('luma-waitlist-email', email);
+					
+					// Update UI
+					button.innerHTML = `
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>You're on the list!</span>
+					`;
+					button.setAttribute('style', 'background: #27C93F; box-shadow: 0 4px 12px rgba(39, 201, 63, 0.25);');
+					
+					input.disabled = true;
+					input.setAttribute('style', 'border-color: #27C93F; background: #F0FFF4;');
+					
+					// Update form note
+					const formNote = form.querySelector('.form-note');
+					if (formNote) {
+						formNote.textContent = '🎉 Welcome to the community! We\'ll notify you when we launch.';
+					}
+					
+					// Trigger confetti
+					createConfetti();
+				}
+			});
+		}
+	}
+
+	// ===============================================
+	// INIT ALL ON DOM READY
+	// ===============================================
+	document.addEventListener('DOMContentLoaded', () => {
+		// Initial reveal
+		revealOnScroll();
+		
+		// Initialize features
+		initNavCTA();
+		initTypewriter();
+		initLiveCounters();
+		initCommandPalette();
+		initCursorSpotlight();
+		initSmoothScroll();
+		initFAQ();
+		initWaitlistForm();
+		
+		// Scroll events
+		window.addEventListener('scroll', () => {
+			revealOnScroll();
+			updateNavProgress();
+		});
+	});
+</script>
+
